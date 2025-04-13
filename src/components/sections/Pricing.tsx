@@ -1,130 +1,117 @@
+
 import React, { useState } from "react";
 
 export const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   const PricingCard = ({ title, price, features, isPro = false }) => (
-    <div className="self-stretch min-w-60 w-[307px] my-auto">
-      <div
-        className={`${
-          isPro
-            ? "relative shadow-[0px_10px_74px_10px_rgba(78,0,191,0.41)]"
-            : "bg-[rgba(0,0,0,0.06)]"
-        } border w-full p-5 rounded-[10px] border-[rgba(255,255,255,0.15)] border-solid`}
-      >
-        {isPro && (
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/200cb9c433534172b9d9ed52ab4b1cd9/3975b02460da5e14ea6aa3cbe3525143d111de11?placeholderIfAbsent=true"
-            className="absolute h-full w-full object-cover inset-0"
-          />
-        )}
-        <div className="relative">
-          <div className="max-w-full w-[147px] whitespace-nowrap">
-            <h3 className="text-white text-2xl font-medium leading-none tracking-[-0.01px]">
-              {title}
-            </h3>
-            <div className="text-white text-base font-normal leading-loose tracking-[-0px] mt-1.5">
-              ${price}/mo
-            </div>
-          </div>
-
-          <div className="min-h-[140px] w-full max-w-[163px] text-sm text-white font-normal tracking-[-0px] leading-loose mt-10">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-[5px] py-2.5">
-                <img
-                  src={isPro ? "https://cdn.builder.io/api/v1/image/assets/200cb9c433534172b9d9ed52ab4b1cd9/01a161e25e988786032f270418c1c595de6da449?placeholderIfAbsent=true" : "https://cdn.builder.io/api/v1/image/assets/200cb9c433534172b9d9ed52ab4b1cd9/8479a9bc4b2e19656a08eb5f13d4f77d0cb78cbd?placeholderIfAbsent=true"}
-                  alt="Check"
-                  className="aspect-[1] object-contain w-[15px] self-stretch shrink-0 my-auto"
-                />
-                <div className="self-stretch w-[143px] my-auto">{feature}</div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            className={`self-stretch ${
-              isPro ? "bg-[rgba(140,69,255,0.4)]" : "bg-[rgba(61,61,61,0.4)]"
-            } border gap-2.5 overflow-hidden text-sm text-white font-normal tracking-[-0px] leading-[26px] mt-[179px] px-[15px] py-1.5 rounded-[10px] border-[rgba(255,255,255,0.15)] border-solid hover:bg-opacity-60 transition-colors max-md:mt-10 w-full`}
-          >
-            Join waitlist
-          </button>
-        </div>
+    <div className={`bg-[rgba(30,30,40,0.5)] border rounded-xl p-6 flex flex-col ${isPro ? "border-purple-500" : "border-[rgba(255,255,255,0.1)]"}`}>
+      <h3 className="text-xl font-medium mb-1">
+        {title}
+      </h3>
+      <div className="text-lg mb-6">
+        ${price}/mo
       </div>
+
+      <ul className="space-y-4 flex-1 mb-6">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-center gap-2">
+            <svg
+              className={`w-5 h-5 ${isPro ? "text-purple-500" : "text-white/50"}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+            <span className="text-sm text-white/80">{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      <button
+        className={`py-2 rounded-lg border ${
+          isPro ? "bg-purple-600 border-purple-500" : "bg-[rgba(30,30,40,0.8)] border-[rgba(255,255,255,0.1)]"
+        } hover:bg-opacity-80 transition-colors`}
+      >
+        Join waitlist
+      </button>
     </div>
   );
 
   return (
-    <section className="relative flex flex-col px-[129px] py-3.5 max-md:max-w-full max-md:px-5">
-      <div className="self-center z-0 flex flex-col items-center max-md:max-w-full">
-        <div className="flex w-[433px] max-w-full flex-col items-center text-white text-center">
-          <h2 className="text-[56px] font-medium leading-none tracking-[-0.84px] max-md:text-[40px]">
-            Pricing
-          </h2>
-          <p className="text-xl font-normal leading-[31px] tracking-[-0px] mt-10 max-md:max-w-full">
-            Choose the right plan to meet your SEO needs and start optimizing
-            today.
-          </p>
-        </div>
+    <section className="py-24 px-4 max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-medium mb-4">
+          Pricing
+        </h2>
+        <p className="text-white/80 text-lg max-w-lg mx-auto">
+          Choose the right plan to meet your learning needs and start optimizing
+          today.
+        </p>
+      </div>
 
-        <div className="flex items-center gap-2.5 justify-center flex-wrap mt-[111px] max-md:max-w-full max-md:mt-10">
-          <PricingCard
-            title="Basic"
-            price="29"
-            features={[
-              "Keyword optimization",
-              "Automated meta tags",
-              "SEO monitoring",
-              "Monthly reports",
-            ]}
+      <div className="flex justify-center items-center space-x-2 mb-12">
+        <span className={`text-sm ${!isYearly ? "text-white" : "text-white/50"}`}>Monthly</span>
+        <button
+          onClick={() => setIsYearly(!isYearly)}
+          className="relative inline-flex h-6 w-11 items-center rounded-full bg-purple-600"
+        >
+          <span
+            className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
+              isYearly ? "translate-x-6" : "translate-x-1"
+            }`}
           />
+        </button>
+        <span className={`text-sm ${isYearly ? "text-white" : "text-white/50"}`}>Yearly</span>
+      </div>
 
-          <PricingCard
-            title="Pro"
-            price="79"
-            features={[
-              "Keyword optimization",
-              "Automated meta tags",
-              "SEO monitoring",
-              "Monthly reports",
-              "Content suggestions",
-              "Link optimization",
-            ]}
-            isPro={true}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <PricingCard
+          title="Basic"
+          price="29"
+          features={[
+            "Keyword optimization",
+            "Automated meta tags",
+            "SEO monitoring",
+            "Monthly reports",
+          ]}
+        />
 
-          <PricingCard
-            title="Business"
-            price="149"
-            features={[
-              "Keyword optimization",
-              "Automated meta tags",
-              "SEO monitoring",
-              "Monthly reports",
-              "Content suggestions",
-              "Link optimization",
-              "Multi-user access",
-              "API integration",
-            ]}
-          />
-        </div>
+        <PricingCard
+          title="Pro"
+          price="79"
+          features={[
+            "Keyword optimization",
+            "Automated meta tags",
+            "SEO monitoring",
+            "Monthly reports",
+            "Content suggestions",
+            "Link optimization",
+          ]}
+          isPro={true}
+        />
 
-        <div className="absolute z-0 flex items-center gap-1.5 -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4">
-          <button
-            onClick={() => setIsYearly(!isYearly)}
-            className="self-stretch w-[33px] my-auto"
-          >
-            <div className="bg-[rgba(140,69,255,1)] flex flex-col justify-center px-[3px] py-0.5 rounded-[30px]">
-              <div
-                className={`bg-[rgba(249,245,255,1)] flex w-4 shrink-0 h-4 rounded-[30px] transition-transform ${
-                  isYearly ? "translate-x-full" : ""
-                }`}
-              />
-            </div>
-          </button>
-          <span className="text-white text-base font-medium leading-[31px] tracking-[-0px] self-stretch my-auto">
-            Billed Yearly
-          </span>
-        </div>
+        <PricingCard
+          title="Business"
+          price="149"
+          features={[
+            "Keyword optimization",
+            "Automated meta tags",
+            "SEO monitoring",
+            "Monthly reports",
+            "Content suggestions",
+            "Link optimization",
+            "Multi-user access",
+            "API integration",
+          ]}
+        />
       </div>
     </section>
   );

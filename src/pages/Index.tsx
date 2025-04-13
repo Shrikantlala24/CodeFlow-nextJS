@@ -11,7 +11,7 @@ import { CTA } from '@/components/sections/CTA';
 
 const Index = () => {
   return (
-    <div>
+    <div className="bg-black min-h-screen text-white">
       <Navbar />
       <Hero />
       <Companies />

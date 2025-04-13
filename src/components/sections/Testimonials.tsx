@@ -1,37 +1,39 @@
+
 import React from "react";
 
 export const Testimonials = () => {
   return (
-    <section className="relative flex w-[1170px] max-w-full flex-col items-center px-[90px] py-[78px] max-md:px-5">
-      <h2 className="text-white text-center text-[56px] font-medium leading-none tracking-[-0.84px] z-0 max-md:text-[40px]">
-        Our clients
-      </h2>
+    <section className="py-24 px-4 max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-medium mb-4">
+          Our clients
+        </h2>
+        <p className="text-white/80 text-lg max-w-lg mx-auto">
+          Hear firsthand how our solutions have boosted online success for users
+          like you.
+        </p>
+      </div>
 
-      <p className="text-white text-center text-xl font-normal leading-[31px] tracking-[-0px] z-0 w-[433px] mt-7 max-md:max-w-full">
-        Hear firsthand how our solutions have boosted online success for users
-        like you.
-      </p>
-
-      <div className="z-0 w-full mt-7 py-[92px]">
-        <div className="mt-[-86px] w-[218px] max-w-full ml-[202px] pt-[86px] max-md:ml-2.5">
+      <div className="bg-[rgba(30,30,40,0.5)] border border-[rgba(255,255,255,0.1)] rounded-xl p-8 flex flex-col md:flex-row items-center gap-8">
+        <div className="md:w-1/3">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/200cb9c433534172b9d9ed52ab4b1cd9/b56bc99ee17b7361b793ae5f590d44ae5e125672?placeholderIfAbsent=true"
+            src="/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=397&y=687&width=150&height=150"
             alt="Client"
-            className="aspect-[1] object-contain w-full mt-[86px] rounded-[20px] max-md:mt-10"
+            className="rounded-2xl w-40 h-40 object-cover"
           />
         </div>
 
-        <div className="absolute z-0 w-[339px] max-w-full tracking-[-0px] right-[277px] bottom-[201px]">
-          <blockquote className="text-white text-[23px] font-medium leading-[34px]">
+        <div className="md:w-2/3">
+          <blockquote className="text-2xl font-medium leading-relaxed mb-6">
             "This product has completely transformed how I manage my projects
             and deadlines"
           </blockquote>
 
-          <div className="flex w-[289px] max-w-full flex-col font-normal mt-5 pr-[42px] py-px rounded-[0px_0px_0px_0px] max-md:pr-5">
-            <cite className="text-white text-base leading-loose not-italic">
+          <div className="flex flex-col">
+            <cite className="text-lg font-medium not-italic">
               Talia Taylor
             </cite>
-            <div className="text-white text-sm leading-[26px] mt-[5px]">
+            <div className="text-white/70 text-sm">
               Digital Marketing Director @ Quantum
             </div>
           </div>

@@ -1,42 +1,37 @@
+
 import React from "react";
 
 export const Companies = () => {
+  const companies = [
+    { name: "Aero Corp", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=41&y=282&width=82&height=20" },
+    { name: "Verve Valley", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=147&y=282&width=82&height=20" },
+    { name: "Blockchain", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=253&y=282&width=82&height=20" },
+    { name: "Pulse", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=359&y=282&width=82&height=20" },
+    { name: "Outside", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=41&y=312&width=82&height=20" },
+    { name: "Spire", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=147&y=312&width=82&height=20" },
+    { name: "Celestial", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=253&y=312&width=82&height=20" },
+    { name: "Atmos", logo: "/lovable-uploads/4e22d660-1d8d-480e-a8c2-366da979c859.png#x=359&y=312&width=82&height=20" },
+  ];
+
   return (
-    <section className="flex min-h-[390px] w-full flex-col items-center justify-center max-md:max-w-full">
+    <section className="flex flex-col items-center justify-center px-4 py-16 max-w-6xl mx-auto">
       <h2 className="text-white text-center text-base font-normal leading-loose tracking-[-0px]">
         Trusted by the world's most innovative teams
       </h2>
 
-      <div className="mt-10 max-md:max-w-full">
-        <div className="flex gap-2.5 flex-wrap max-md:max-w-full">
-          {[10, 11, 12, 13].map((num) => (
-            <div
-              key={num}
-              className="border flex flex-col items-stretch justify-center w-[235px] px-10 py-8 rounded-[10px] border-[rgba(255,255,255,0.15)] border-solid max-md:px-5"
-            >
-              <img
-                src={`URL_${num}`}
-                alt="Company Logo"
-                className="aspect-[4.57] object-contain w-[155px] max-w-full"
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="flex gap-2.5 flex-wrap mt-2.5 max-md:max-w-full">
-          {[20, 21, 22, 23].map((num) => (
-            <div
-              key={num}
-              className="border flex flex-col items-stretch justify-center w-[235px] px-10 py-8 rounded-[10px] border-[rgba(255,255,255,0.15)] border-solid max-md:px-5"
-            >
-              <img
-                src={`URL_${num}`}
-                alt="Company Logo"
-                className="aspect-[4.57] object-contain w-[155px] max-w-full"
-              />
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-8 w-full">
+        {companies.map((company, index) => (
+          <div
+            key={index}
+            className="border flex items-center justify-center px-6 py-4 h-16 rounded-lg border-[rgba(255,255,255,0.15)] border-solid"
+          >
+            <img
+              src={company.logo}
+              alt={`${company.name} Logo`}
+              className="max-h-8 w-auto"
+            />
+          </div>
+        ))}
       </div>
     </section>
   );
